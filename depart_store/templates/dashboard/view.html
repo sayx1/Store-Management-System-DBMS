@@ -1,0 +1,52 @@
+{% extends 'partials/search.html' %}
+
+{% block view%}
+
+<div class="container-md mx-auto gap-3 mx-auto t-5 ">
+
+    <table class="table table-striped ">
+        <thead class="">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Product Name</th>
+                <th scope="col">Manufacturer Name</th>
+                <th scope="col">Product Qunatity</th>
+                <th scope="col">Product Expiry</th>
+                <th scope="col">Product Price</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            </tr>
+            {% for product in searched_products %}
+            <tr>
+                <th scope="row">{{product.product_id}}</th>
+                <td>{{product.product_name}}</td>
+                <td>{{product.manufacturer_name}}</td>
+                <td>{{product.product_qunatity}}</td>
+                <td>{{product.product_expiry}}</td>
+                <td>{{product.product_price}}</td>
+                <td>
+                    <form action="{% url 'dashboard-edit' product.product_id%}" method="get">
+                        <button type="submit" class="btn btn-success"><i class="fas fa-edit"></i></button>
+                    </form>
+                </td>
+                <td>
+                    <form action="{% url 'dashboard-delete' product.product_id%}" method="get">
+                        <button type="submit" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+
+</div>
+
+
+
+
+{% endblock %}

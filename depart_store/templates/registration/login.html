@@ -1,0 +1,40 @@
+{% extends 'partials/base.html'%}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block login %}
+<section class="vh-100" style="background-color: #343a40;">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-xl-10">
+        <div class="card" style="border-radius: 1rem;">
+          <div class="row g-0">
+            <div class="col-md-6 col-lg-7 d-none d-md-block align-items-center">
+              <img src="{% static 'login.jpg'%}" alt="login form" class="img-fluid center w-100 h-100 zoom-img"
+                style="border-radius: 1rem 0 0 1rem;" />
+            </div>
+            <div class="col-md-6 col-lg-5 d-flex ">
+              <div class="card-body p-4 p-lg-5 text-black">
+                <div class="text-center">
+
+
+                  <img src={% static 'logo.png'%} alt="logo" class="text-center" style="max-width:20%;" } />
+
+                  <form method="post" style="max-width:480px;margin:auto;mt-6;">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <p style="font-size:9px;color:grey;"> Please Login to Continue. </p>
+                    <button type="submit" class="btn btn-primary btn-sm">Sign in</button>
+
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

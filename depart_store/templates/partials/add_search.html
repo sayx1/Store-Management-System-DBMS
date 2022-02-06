@@ -1,0 +1,19 @@
+{% extends 'partials/cards.html' %}
+
+{% block form_ %}
+
+<div class="container-sm mx-auto gap-3 mx-auto t-5"  >
+    <form action="{% url 'dashboard-add' 0 %}" method="post">
+        {% csrf_token %}
+        <div class="p-1 bg-light shadow-sm mb-4">
+          <div class="input-group">
+            <input type="search" placeholder="Product Name" aria-describedby="button-addon1" class="form-control border-0 bg-light" name="search">
+            <div class="input-group-append">
+              <button id="button-primary" type="submit" class="btn btn-link text-primary"><i class="fa fa-search"></i></button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+   
+{% endblock %}

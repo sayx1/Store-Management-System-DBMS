@@ -1,0 +1,48 @@
+{% extends 'partials/cards.html' %}
+
+
+{% block form_ %}
+
+<div class="container-md mx-auto gap-3 mx-auto t-5 text-center mb-3">
+    <h3 class="text-danger font-weight-bold">Do You Want to Delete Following Data?</h3>
+</div>
+
+<div class="container-md mx-auto gap-3 mx-auto t-5 ">
+
+    <table class="table table-striped ">
+        <thead class="">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Product Name</th>
+                <th scope="col">Manufacturer Name</th>
+                <th scope="col">Product Qunatity</th>
+                <th scope="col">Product Expiry</th>
+                <th scope="col">Product Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            </tr>
+
+            <tr>
+                <th scope="row">{{product_id}}</th>
+                <td>{{product_name}}</td>
+                <td>{{manufacturer_name}}</td>
+                <td>{{product_qunatity}}</td>
+                <td>{{product_expiry}}</td>
+                <td>{{product_price}}</td>
+            </tr>
+
+        </tbody>
+
+    </table>
+    <div class="container-md mx-auto gap-3 mx-auto t-5 text-center mb-3">
+        <h5 class="text-danger font-weight-bold">This operation cannot be reserved.</h5>
+        <form action="{% url 'dashboard-delete' product_id%}" method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Delete Now <i class="fas fa-trash"></i></button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

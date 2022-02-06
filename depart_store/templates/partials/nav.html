@@ -1,0 +1,35 @@
+{% extends 'partials/base.html'%}
+
+{% block nav_bar %}
+<nav class="navbar navbar-dark navbar-expand-sm bg-dark mb-3">
+    <div class="container">
+        <a href="/" class="navbar-brand">
+            <i class="fas fa-store-alt"></i> &nbsp;
+            Kirana
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+
+        <div id="navbarCollapse" class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a href="{% url 'admin:index' %}" class="nav-link active">
+                        Admin
+                    </a>
+                <li class="nav-item">
+                    <a href="{% url 'logout' %}" class="nav-link active">
+                        Logout
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+
+
+    </div>
+</nav>
+{% endblock %}
